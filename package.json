@@ -1,0 +1,14 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "Project Movies",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "author": "Ivan Kovalenko",
+  "license": "ISC"
+}
