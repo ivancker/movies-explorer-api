@@ -11,7 +11,7 @@ router.post('/signup', validateSignUp, usersController.createUser) // email, pas
 router.post('/signin', validateSignIn, usersController.loginUser) // email, password -> return JWT
 
 router.use('/users', auth, usersRouter)
-// router.use('/movies', auth, moviesRouter)
+router.use('/movies', auth, moviesRouter)
 
 router.use(auth, () => {
   throw new NotFoundError('Запрашиваемая страница не существует')

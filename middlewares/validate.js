@@ -35,7 +35,7 @@ const validateAddMovie = celebrate({
     country: Joi.string().required(),
     director: Joi.string().required(),
     duration: Joi.number().required(),
-    year: Joi.number().required(),
+    year: Joi.string().required(),
     description: Joi.string().required(),
     image: Joi.string().required().regex(urlRegex),
     trailer: Joi.string().required().regex(urlRegex),

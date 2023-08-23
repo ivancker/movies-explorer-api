@@ -15,15 +15,15 @@ const movieSchema = new mongoose.Schema({
     required: true,
   },
   year: {
-    type: Stryng,
+    type: String,
     required: true,
   },
   description: {
-    type: Stryng,
+    type: String,
     required: true,
   },
   image: {
-    type: Stryng,
+    type: String,
     required: true,
     validate: {
       validator: (v) => validator.isURL(v),
@@ -31,7 +31,7 @@ const movieSchema = new mongoose.Schema({
     },
   },
   trailerLink: {
-    type: Stryng,
+    type: String,
     required: true,
     validate: {
       validator: (v) => validator.isURL(v),
@@ -39,7 +39,7 @@ const movieSchema = new mongoose.Schema({
     },
   },
   thumbnail: {
-    type: Stryng,
+    type: String,
     required: true,
     validate: {
       validator: (v) => validator.isURL(v),
@@ -56,11 +56,11 @@ const movieSchema = new mongoose.Schema({
     required: true,
   },
   nameRU: {
-    type: Stryng,
+    type: String,
     required: true,
   },
   nameEN: {
-    type: Stryng,
+    type: String,
     required: true,
   },
 })
