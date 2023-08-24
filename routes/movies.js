@@ -4,6 +4,6 @@ const { validateAddMovie, validateDeleteMovie } = require('../middlewares/valida
 
 moviesRouter.get('/', moviesController.getMovies)
 moviesRouter.post('/', validateAddMovie, moviesController.addMovie) //country, director, duration, year, description, image, trailer, nameRU, nameEN и thumbnail, movieId
-moviesRouter.delete('/:movieId', validateDeleteMovie, moviesController.deletetMovie)
+moviesRouter.delete('/:_id', validateDeleteMovie, moviesController.deletetMovie)
 
 module.exports = moviesRouter

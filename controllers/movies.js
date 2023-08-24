@@ -6,7 +6,7 @@ const ForbiddenError = require('../errors/forbiddenError') // 403
 
 const getMovies = (req, res, next) => {
   movieModel
-    .find({}) // owner: req.user._id
+    .find({})
     .then((movies) => {
       res.status(200).send(movies)
     })
@@ -30,7 +30,7 @@ const addMovie = (req, res, next) => {
     movieId
   } = req.body
   const owner = req.user._id
-  // const createdAt = Date().now
+  const createdAt = Date().now
   movieModel
     .create({
       country,
@@ -45,7 +45,7 @@ const addMovie = (req, res, next) => {
       thumbnail,
       movieId,
       owner,
-      // createdAt,
+      createdAt,
     })
     .then((movie) => {
       res.status(201).send(movie)
@@ -61,13 +61,13 @@ const addMovie = (req, res, next) => {
 
 const deletetMovie = (req, res, next) => {
   movieModel
-    .findById(req.params.movieId)
-    .orFail(() => new NotFoundError('Фильма с таким Id не существует'))
+    .findById(req.params._id)
+    .orFail(() => new NotFoundError('Фильма с таким id не существует'))
     .then((data) => {
       if (data.owner.toString() !== req.user._id.toString()) {
         throw new ForbiddenError('Чужие фильмы нельзя удалять')
       }
-      movieModel.findByIdAndRemove(req.params.movieId)
+      movieModel.findByIdAndDelete(req.params._id)
         .then(() => res.status(200).send({ message: 'Фильм удален' }))
         .catch((err) => {
           if (err.name === 'CastError') {
