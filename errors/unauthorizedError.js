@@ -3,4 +3,4 @@ module.exports = class UnauthorizedError extends Error {
     super(message);
     this.statusCode = 401;
   }
-}
+};

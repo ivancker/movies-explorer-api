@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const validator = require('validator')
+const mongoose = require('mongoose');
+const validator = require('validator');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -30,7 +30,7 @@ const movieSchema = new mongoose.Schema({
       message: 'Такого URL не бывает',
     },
   },
-  trailer: {
+  trailerLink: {
     type: String,
     required: true,
     validate: {
@@ -63,6 +63,6 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-})
+});
 
-module.exports = mongoose.model('movie', movieSchema)
+module.exports = mongoose.model('movie', movieSchema);
